@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>javaScript</title>
+
+    <style>
+     body{
+  	background-color:lightblue;
+  	}
+     h1{
+  	background-color:#FF9900;
+  	padding:10px;
+  	text-shadow:2px 4px 4px white;
+  	}
+     p{
+  	padding:10px;
+  	text-shadow: 2px 2px 5px green;
+  	}
+     img{
+  	box-shadow: 10px 10px 5px grey;
+  	}
+     button{
+  	color:#fff;background-color:#FF6600;border-color:#FF9900
+  	  }
+     div{
+        background-color:white;
+        box-shadow: 5px 5px 5px grey;
+  	}
+     /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+  }
+
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+  }
+
+  @keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+  }
+
+  /* The Close Button */
+  .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+
+    .modal-body {padding: 2px 16px;}
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+}
+</style>
+</head>
+<body>
+<center><h1>ทดสอบการใช้ JavaScript</h1></center>
+
+<div>
+1.เทคนิคแสดงป็อพอัพ (Popup) เพื่อแจ้งเตือน หรือกล่าวทักทาย
+<button onclick="ToSnow()">คลิก</button><br><br><br>
+<script>
+function ToSnow() {
+    alert("สวัสดี ผมชื่อโท");
+}
+</script>
+</div><br><br><br>
+
+<div>
+ 2.เทคนิคการแสดงป็อพอัพเพื่อตรวจสอบเงื่อนไข
+ <br>
+ <button type="button" onclick="ToSnow1()">คลิก</button><br>
+ <p id="pp"></p>
+ <script>
+  function ToSnow1(){
+  var txt;
+   if(confirm("คุณเป็นผู้ชาย หรือ ไม่") == true){
+    txt = "คุณคือผู้ชาย";
+   }
+   else{
+    txt = "คุณคือผู้หญิง";
+   }
+    document.getElementById("pp").innerHTML=txt;
+  }
+ </script>
+</div><br><br><br>
+
+<div>
+3.เทคนิคซ่อนเนื้อหา(Element) ที่เป็นรูปภาพ<br>
+ <button type="button" onClick="getElementById('pho').style.display='none'">คลิก</button><br><p id="pho"><img src="d.jpg" width="450" height="450"></p>
+4.เทคนิคที่ใช้แสดงรูปภาพที่ซ่อนไว้<br>
+ <button type="button" onClick="getElementById('pho').style.display='block'">คลิก</button><br><br>
+</div><br><br>
+<div>
+
+
+<div>
+  5.เทคนิคที่ใช้เพื่อดูเวลา และวันที่
+  <br><button type="button" onClick="document.getElementById('demo').innerHTML=Date()">
+  คลิก</button>
+
+  <p id="demo"></p>
+  6.เทคนิคเปลี่ยนเนื้อหา (Element) ของเวลาและวันที่ให้เป็นคำทักทายโดยใช้ Element เดียวกัน
+ <br><button type="button" onclick='getElementById("demo").innerHTML="Tomorrow i with yesterday you " '>
+  คลิก</button><br><br>
+</div><br><br>
+
+<div>
+  7.เทคนิคการนับค่าจำนวนอาเรยใหม่ที่เพิ่มขึ้น<br>
+ <button type="button" onClick="ToSnow2()">คลิก</button><br>
+ <p id="demo2"></p>
+ <p id="demo1"></p>
+ <script>
+ var car=["I","love","Jee"];
+ document.getElementById("demo1").innerHTML=car;
+ function ToSnow2() {
+	 document.getElementById("demo1").innerHTML=car.push("Jee");
+	 document.getElementById("demo2").innerHTML=car;
+	 }
+ </script><br><br>
+</div><br><br>
+
+<div>
+ 8.เทคนิคการเรียงลำดับค่าอาเรย์จากน้อยไปหามาก <br>
+ <button onClick="ToSnow3()">คลิก</button>
+<p id="deme"></p>
+<script>
+var points = [7, 1, 6, 5, 4, 3, 2];
+document.getElementById("deme").innerHTML = points;
+
+function ToSnow3() {
+    points.sort(function(a, b){return a - b});
+    document.getElementById("deme").innerHTML = points;
+}
+</script>
+<br><br>
+</div><br><br>
+
+<div>
+  9.เทคนิคการเปลี่ยนขนาดตัวอักษร <br>
+  <h1 id="hsize">เทคนิค</h1>
+        <h2 id="hhsize">เปลี่ยนขนาดตัวอักษร</h2>
+        <p id="psize">คลิกปุ่มเพื่อเปลี่ยนขนาด</p>
+        <button onclick="clickAll()">Click</button>
+
+      <script>
+          function clickAll() {
+              hsize();
+              hhsize();
+              psize();
+          }
+          function hsize() {
+              document.getElementById("hsize").style.fontSize = "55%";
+          }
+          function hhsize() {
+              document.getElementById("hhsize").style.fontSize = "65%";
+          }
+          function psize() {
+              document.getElementById("psize").style.fontSize = "70%";
+          }
+      </script>
+  </div>
+<br>
+<div>
+  10.เทคนิคการเปลี่ยนสิของรูปภาพ <br>
+  <p>JavaScript สามารถเปลี่ยนแอตทริบิวต์ HTML ได้</p>
+  <p>ในกรณีนี้ JavaScript จะเปลี่ยนแอตทริบิวต์ src (source) ของรูปภาพ.</p>
+
+  <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">เปิด</button>
+
+  <img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+  <button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">ปิด</button>
+</div>
+
+ </body>
+</html>
